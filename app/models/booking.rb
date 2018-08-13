@@ -4,5 +4,5 @@ class Booking < ApplicationRecord
   validates :car, presence: true
   validates :spot, presence: true
   validates :duration, presence: true
-  validates :duration, numeralicality: ( only_integer: true)
+  validates :duration, numeralicality: { only_integer: true}
 end
