@@ -22,10 +22,9 @@ end
 
 puts "Created #{User.count} Users"
 
-Spot.create(site_name: "Mom's garage", address: "123 Main Street", price: 12, description: "Nice parking for a large car downtown")
 
 20.times do
-  Spot.create(site_name: Faker::SouthPark.character, address: Faker::TwinPeaks.location, price: (5..30).to_a.sample, description: 'some spot')
+  Spot.create(site_name: "fake site name", address: "fake address", hourly_rate: (5..30).to_a.sample, description: 'some spot')
 end
 
 puts "created #{Spot.count} spots"
