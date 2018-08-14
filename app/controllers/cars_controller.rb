@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    raise
+    @cars = Car.all
   end
 
   def show
@@ -8,7 +8,7 @@ class CarsController < ApplicationController
   end
 
   def new
-    raise
+    @car = Car.new
   end
 
   def create
