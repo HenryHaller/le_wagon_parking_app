@@ -25,20 +25,26 @@ end
 puts "Created #{User.count} Users"
 
 
-20.times do
-  Spot.create(site_name: "fake site name", address: "fake address", hourly_rate: (5..30).to_a.sample, description: 'some spot', location: "75n, 78s", user: User.all.sample)
+User.all.each do |user|
+  7.times do
+    Spot.create(site_name: "fake site name", address: "fake address", hourly_rate: (5..30).to_a.sample, description: 'some spot', location: "75n, 78s", user: user)
+  end
 end
 
 puts "created #{Spot.count} spots"
 
-20.times do
-  Car.create(make: "fake make", model: "fake model", license_plate: "fake plate", color: 'a color', year: 1999, user: User.all.sample)
+User.all.each do |user|
+  7.times do
+    Car.create(make: "fake make", model: "fake model", license_plate: "fake plate", color: 'a color', year: 1999, user: user)
+  end
 end
 
 puts "created #{Car.count} cars"
 
-20.times do
-  Booking.create(spot: Spot.all.sample, car: Car.all.sample, duration: (1..8).to_a.sample)
+Spot.all.each do |spot|
+  7.times do
+    Booking.create(spot: spot, car: spot.user.cars.first, duration: (1..8).to_a.sample)
+  end
 end
 
 puts "created #{Booking.count} bookings"
