@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
   def index
-    raise
+    @bookings = Booking.all
   end
 
   def new
-    raise
+    @booking = Booking.new
   end
 
   def create
