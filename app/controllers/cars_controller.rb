@@ -12,6 +12,17 @@ class CarsController < ApplicationController
   end
 
   def create
-    raise
+    @car = Car.new(cars_params)
+    if @car.save
+      redirect_to cars_path
+    else
+      render :new
   end
+
+  private
+  def cars_params
+    params.require(:car).permit(:make, :model, :year, :license_plate)
+  end
+
+
 end
