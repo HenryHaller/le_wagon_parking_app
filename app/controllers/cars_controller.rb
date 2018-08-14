@@ -22,7 +22,7 @@ class CarsController < ApplicationController
 
   private
   def cars_params
-    params.require(:car).permit(:make, :model, :year, :license_plate)
+    params.require(:car).permit(:make, :model, :year, :license_plate, :photo)
   end
 
 
