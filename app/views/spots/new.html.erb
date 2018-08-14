@@ -1,2 +1,16 @@
-<h1>Spots#new</h1>
-<p>Find me in app/views/spots/new.html.erb</p>
+<h1>Add a spot</h1>
+
+<div class="container">
+ <div class="row">
+   <div class="col-md-8 col-md-offset-2">
+
+     <%= simple_form_for @spot do |f| %>
+       <%= f.input :site_name %>
+       <%= f.input :address %>
+       <%= f.input :hourly_rate %>
+       <%= f.input :description %>
+       <%= f.button :submit, class: 'btn btn-primary' %>
+     <% end %>
+   </div>
+ </div>
+</div>
