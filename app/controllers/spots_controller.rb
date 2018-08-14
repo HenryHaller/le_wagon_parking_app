@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.all
+    @spots = current_user.spots
   end
 
   def show
@@ -15,8 +15,9 @@ class SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.user = current_user
     if @spot.save
-      redirect_to spot_path()
+      redirect_to spots_path
     else
+      raise
       render :new
     end
   end

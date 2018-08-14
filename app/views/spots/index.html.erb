@@ -11,8 +11,8 @@
 
       <!-- Links when logged in -->
       <%= link_to "Reservations", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Cars", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Spots", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Cars", cars_url(@spots), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Spots", spots_url(@spots), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -60,42 +60,23 @@
 <h3>Spots</h3>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12">
-      <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
+    <% @spots.each do |spot| %>
+      <div class="col-xs-12">
+        <!-- insert <div class="card"> -->
+
+          <div class="card" style="background-color:#AFBFC0;">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <p>spot.site_name</p>
+          </div>
+
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <a class="card-link" href="#" ></a>
         </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-12">
-      <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12">
-      <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+
+<%= link_to "Add a New Spot", new_spot_url(@spot), class: "btn btn-primary btn-lg" %>
 

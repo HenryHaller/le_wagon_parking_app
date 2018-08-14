@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @cars = Car.all
+    @cars = current_user.cars
   end
 
   def show
