@@ -18,7 +18,7 @@ Booking.delete_all
 #creating sample user
 User.create(first_name: "jon", last_name: "jones", email: "test@gmail.com", password: "123456")
 
-20.times do
+5.times do
   User.create(first_name: Faker::Dog.name, last_name: Faker::Pokemon.name, email: Faker::Internet.email, password: "123456")
 end
 
@@ -26,23 +26,28 @@ puts "Created #{User.count} Users"
 
 
 User.all.each do |user|
-  7.times do
+  1.times do
     Spot.create(site_name: "fake site name", address: "fake address", hourly_rate: (5..30).to_a.sample, description: 'some spot', location: "75n, 78s", user: user)
   end
 end
 
 puts "created #{Spot.count} spots"
 
+
+
 User.all.each do |user|
-  7.times do
-    Car.create(make: "fake make", model: "fake model", license_plate: "fake plate", color: 'a color', year: 1999, user: user)
+maker = ["https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2018/03/senna.jpg?itok=eYNPMGjA&fc=50,50", "https://amp.businessinsider.com/images/5aabc7bbc72ac12f008b4609-750-563.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM3XKvQ4tbYVq4rEIvphrSncrNkf_J0_-ugWNgADpqYEtVNiywqg", "https://www.fitmycar.com/journal/wp-content/uploads/2015/12/Top-Ten-Import-Tuner-Cars.jpg", "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?cs=srgb&dl=light-road-landscape-707046.jpg&fm=jpg"].sample
+1.times do
+    maker_car = Car.new(make: "fake make", model: "fake model", license_plate: "fake plate", color: 'a color', year: 1999, user: user)
+    maker_car.remote_photo_url = maker
+    maker_car.save
   end
 end
 
 puts "created #{Car.count} cars"
 
 Spot.all.each do |spot|
-  7.times do
+  1.times do
     Booking.create(spot: spot, car: spot.user.cars.first, duration: (1..8).to_a.sample)
   end
 end
