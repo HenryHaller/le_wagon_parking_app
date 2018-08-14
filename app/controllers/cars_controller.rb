@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    @cars = current_user.cars
   end
 
   def show
@@ -25,5 +25,5 @@ class CarsController < ApplicationController
   def cars_param
     params.require(:car).permit(:make, :model, :year, :license_plate, :photo)
   end
-  
+
 end
