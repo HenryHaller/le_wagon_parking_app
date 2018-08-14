@@ -1,9 +1,16 @@
 <h1>Cars</h1>
 
 <%= link_to "Cars", cars_path, class: 'btn btn-info'  %>
+<%= link_to "Profile", root_path, class: 'btn btn-danger' %>
 <%= link_to "Spots", spots_path, class: 'btn btn-primary' %>
-<%= link_to "Bookings", spot_bookings_path class: 'btn btn-success' %>
+<%= link_to "Bookings", class: 'btn btn-success' %>
 
-<div class="container">
-
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Le Wagon Shanghai</h2>
+    <p>Very cool city, the best</p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
 </div>
