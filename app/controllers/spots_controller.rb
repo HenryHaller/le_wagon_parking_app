@@ -4,7 +4,7 @@ class SpotsController < ApplicationController
   end
 
   def show
-    raise
+    @spot = Spot.find(params[:id])
   end
 
   def new
@@ -12,10 +12,22 @@ class SpotsController < ApplicationController
   end
 
   def create
-    raise
+    @spot = Spot.new(spot_params)
+    @spot.user = current_user
+    if @spot.save
+      redirect_to spot_path()
+    else
+      render :new
+    end
   end
 
   def edit
     raise
+  end
+
+  private
+
+  def spot_params
+    params.require(:spot).permit(:site_name, :address, :description, :hourly_rate)
   end
 end
