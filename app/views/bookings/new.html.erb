@@ -1,3 +1,9 @@
 <h1>Bookings</h1>
 
 <p>Find me in app/views/bookings/new.html.erb</p>
+
+<%= simple_form_for [@spot, @booking] do |f| %>
+<%= f.input :duration %>
+<%= f.input :car_id, collection: @cars %>
+<%= f.submit %>
+<% end %>
