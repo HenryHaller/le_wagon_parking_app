@@ -62,7 +62,9 @@
   <div class="banner-content">
     <h1>Parking for All</h1>
     <p>On demand parking near you</p>
+
     <a class="btn btn-primary btn-lg">Search</a>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
 
