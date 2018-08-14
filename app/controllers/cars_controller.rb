@@ -17,6 +17,7 @@ class CarsController < ApplicationController
       redirect_to cars_path
     else
       render :new
+    end
   end
 
   private
