@@ -10,7 +10,9 @@
 #User
 
 Spot.delete_all
+Car.delete_all
 User.delete_all
+Booking.delete_all
 
 
 #creating sample user
@@ -24,7 +26,19 @@ puts "Created #{User.count} Users"
 
 
 20.times do
-  Spot.create(site_name: "fake site name", address: "fake address", hourly_rate: (5..30).to_a.sample, description: 'some spot')
+  Spot.create(site_name: "fake site name", address: "fake address", hourly_rate: (5..30).to_a.sample, description: 'some spot', location: "75n, 78s", user: User.all.sample)
 end
 
 puts "created #{Spot.count} spots"
+
+20.times do
+  Car.create(make: "fake make", model: "fake model", license_plate: "fake plate", color: 'a color', year: 1999, user: User.all.sample)
+end
+
+puts "created #{Car.count} cars"
+
+20.times do
+  Booking.create(spot: Spot.all.sample, car: Car.all.sample, duration: (1..8).to_a.sample)
+end
+
+puts "created #{Booking.count} bookings"
