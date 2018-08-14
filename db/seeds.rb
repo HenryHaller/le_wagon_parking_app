@@ -34,7 +34,7 @@ end
 puts "created #{Spot.count} spots"
 
 User.all.each do |user|
-  7.times do
+  3.times do
     Car.create(make: "fake make", model: "fake model", license_plate: "fake plate", color: 'a color', year: 1999, user: user)
   end
 end
@@ -42,7 +42,7 @@ end
 puts "created #{Car.count} cars"
 
 Spot.all.each do |spot|
-  7.times do
+  3.times do
     Booking.create(spot: spot, car: spot.user.cars.first, duration: (1..8).to_a.sample)
   end
 end

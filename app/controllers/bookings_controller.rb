@@ -2,6 +2,18 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @car_bookings = []
+    @spot_bookings = []
+    current_user.cars.each do |car|
+      car.bookings.each do |booking|
+        @car_bookings += booking
+      end
+    end
+    current_user.spots.each do |spot|
+      spot.bookings.each do |booking|
+        @spot_bookings += booking
+      end
+    end
   end
 
   def new
