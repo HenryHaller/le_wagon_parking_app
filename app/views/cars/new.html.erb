@@ -1,2 +1,17 @@
-<h1>Cars#new</h1>
+<h1>Add a new car</h1>
 <p>Find me in app/views/cars/new.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Add a new car</h1>
+
+      <%= simple_form_for @car do |f| %>
+        <%= f.input :model %>
+        <%= f.input :make %>
+        <%= f.input :year %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

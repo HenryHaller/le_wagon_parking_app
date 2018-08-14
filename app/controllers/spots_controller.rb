@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   def index
-    raise
+    @spots = Spot.all
   end
 
   def show
@@ -8,7 +8,7 @@ class SpotsController < ApplicationController
   end
 
   def new
-    raise
+    @spot = Spot.new
   end
 
   def create
