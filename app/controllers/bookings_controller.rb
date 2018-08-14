@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @spot = Spot.find(params[:spot_id])
-    @cars = Car.all
+    @cars = current_user.cars
   end
 
   def create
