@@ -1,18 +1,43 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
+<body>
 
-Car bookings:
-<br>
-<% @car_bookings.each do |car_booking| %>
-  <%= car_booking %>
-  <br>
-<% end %>
+  <h1>Bookings</h1>
+  <div class="booking_row">
+    <div class="column">
+      <h3>Car bookings:</h3>
+      <br>
+      <% @car_bookings.each do |car_booking| %>
+      <%= car_booking.car.make %>
+      <%= car_booking.car.model %>
+      <%= car_booking.car.year %>
+      <%= car_booking.car.license_plate %>
+      <%= car_booking.duration %>
+      <%= car_booking.spot.address %>
+      <%= car_booking.spot.site_name %>
+      <%= car_booking.spot.hourly_rate %>
+      <br>
+      <% end %>
+    </div>
 
-Spot Bookings:
-<br>
-<% @spot_bookings.each do |spot_booking| %>
-  <%= spot_booking %>
-  <br>
-<% end %>
-
+    <div class="column">
+      <h3>Spot Bookings:</h3>
+      <br>
+      <% @spot_bookings.each do |spot_booking| %>
+      <%= spot_booking.car.make %>
+      <%= spot_booking.car.model %>
+      <%= spot_booking.car.year %>
+      <%= spot_booking.car.license_plate %>
+      <%= spot_booking.duration %>
+      <%= spot_booking.spot.address %>
+      <%= spot_booking.spot.site_name %>
+      <%= spot_booking.spot.hourly_rate %>
+      <br>
+      <% end %>
+    </div>
+  </div>
+</body>
