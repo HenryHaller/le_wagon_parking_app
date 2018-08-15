@@ -4,7 +4,7 @@
     <% if @@spot.errors.any? %>
     <div class="errors-container">
       <ul>
-        <% @cocktail.errors.full_messages.each do |message| %>
+        <% @spot.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
