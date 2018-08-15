@@ -17,12 +17,15 @@
               <li>License: <%= car_booking.car.license_plate %></li>
             </ul>
             <ul>
-              <li><%= car_booking.duration %></li>
+              <li><%= car_booking.duration %> hours</li>
               <li><%= car_booking.spot.address %></li>
               <li><%= car_booking.spot.site_name %></li>
-              <li><%= car_booking.spot.hourly_rate %></li>
+              <li>Rate: $<%= car_booking.spot.hourly_rate %>/hour</li>
             </ul>
-            <%= link_to "Delete", booking_path(car_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+            <br>
+            <div class="text-center">
+              <%= link_to "Delete", booking_path(car_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+            </div>
           </div>
         <% end %>
       </div>
@@ -31,18 +34,21 @@
         <% @spot_bookings.each do |spot_booking| %>
           <div class="booking_card">
             <ul>
-              <li><%= spot_booking.car.make %></li>
-              <li><%= spot_booking.car.model %></li>
-              <li><%= spot_booking.car.year %></li>
-              <li><%= spot_booking.car.license_plate %></li>
+              <li>Make: <%= spot_booking.car.make %></li>
+              <li>Model: <%= spot_booking.car.model %></li>
+              <li>Year: <%= spot_booking.car.year %></li>
+              <li>License: <%= spot_booking.car.license_plate %></li>
             </ul>
             <ul>
-              <li><%= spot_booking.duration %></li>
+              <li><%= spot_booking.duration %> hours</li>
               <li><%= spot_booking.spot.address %></li>
               <li><%= spot_booking.spot.site_name %></li>
-              <li><%= spot_booking.spot.hourly_rate %></li>
+              <li>Rate: $<%= spot_booking.spot.hourly_rate %>/hour</li>
             </ul>
-            <%= link_to "Delete", booking_path(spot_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+            <br>
+            <div class="text-center">
+              <%= link_to "Delete", booking_path(spot_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+            </div>
           </div>
         <% end %>
       </div>
