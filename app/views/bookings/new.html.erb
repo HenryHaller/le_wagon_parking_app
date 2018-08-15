@@ -1,8 +1,16 @@
 <h1>Bookings</h1>
 
-<p>Find me in app/views/bookings/new.html.erb</p>
 
 <%= simple_form_for [@spot, @booking] do |f| %>
+  <% if @booking.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= f.input :duration %>
 <%= f.input :car_id, collection: @cars %>
 <%= f.submit %>

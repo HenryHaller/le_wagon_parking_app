@@ -1,6 +1,16 @@
 <h1>Add a new car</h1>
 
 <div class="container">
+    <% if @car.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
