@@ -1,16 +1,28 @@
-<h3>Spots</h3>
+<h1 class="text-center">
+<% if @searching %>
+Book a Spot
+<% else %>
+Spots
+<% end %>
+</h1>
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% @spots.each do |spot| %>
-        <div class="card" style="background-color: lightgray;">
-          <div class="card-description">
-            <p>Site Name: <%= spot.site_name %></p>
-            <p>Address: <%= spot.address %></p>
-            <p>Hourly_rate: <%= spot.hourly_rate %></p>
-            <%= link_to "Delete", , method: :delete, data: { confirm: "Do you want to delete?"}  %>
-          </div>
+      <div class="card" style="background-color:#AFBFC0;">
+        <div class="card-category">Popular</div>
+        <div class="card-description">
+          <% if @searching %>
+          <%= link_to "Site Name: #{spot.site_name}", new_spot_booking_path(spot) %>
+          <% else %>
+          <%= "Site Name: #{spot.site_name}" %>
+          <%= link_to "Delete", spot_path(spot), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+          <% end %>
+          <p>Address: <%= spot.address %></p>
+          <p>Hourly_rate: <%= spot.hourly_rate %></p>
         </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      </div>
       <% end %>
     </div>
   </div>
