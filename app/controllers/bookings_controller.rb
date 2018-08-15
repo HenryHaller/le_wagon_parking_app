@@ -27,6 +27,11 @@ class BookingsController < ApplicationController
     booking.car = Car.find(params[:booking][:car_id])
     if booking.save
       redirect_to bookings_path
+    else
+      @spot = Spot.find(params[:spot_id])
+      @cars = current_user.cars
+      @booking = booking
+      render :new
     end
   end
 
