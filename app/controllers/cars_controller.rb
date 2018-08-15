@@ -20,6 +20,12 @@ class CarsController < ApplicationController
       render :new
     end
   end
+  def destroy
+    car = Car.find(params[:id])
+    car.delete
+    redirect_to cars_path
+  end
+
 
   private
   def cars_params
