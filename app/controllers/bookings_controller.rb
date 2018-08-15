@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     else
       @spot = Spot.find(params[:spot_id])
       @cars = current_user.cars
-      @booking = Booking.new
+      @booking = booking
       render :new
     end
   end
