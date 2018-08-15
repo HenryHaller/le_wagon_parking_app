@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :spots, only: [:index, :create]
-  resources :cars, only: [:index, :new, :create, :delete]
+  resources :spots, only: [:index, :create, :destroy]
+  resources :cars, only: [:index, :new, :create, :destroy]
   resources :spots, only: [:new, :create, :delete] do
     resources :bookings, shallow: true
   end
