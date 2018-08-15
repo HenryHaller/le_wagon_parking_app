@@ -13,10 +13,12 @@ Spots
         <div class="card-category">Popular</div>
         <div class="card-description">
           <% if @searching %>
-          <%= link_to spot.site_name, new_spot_booking_path(spot) %>
+          <%= link_to "Site Name: #{spot.site_name}", new_spot_booking_path(spot) %>
           <% else %>
-          <%= spot.site_name %>
+          <%= "Site Name: #{spot.site_name}" %>
           <% end %>
+          <p>Address: <%= spot.address %></p>
+          <p>Hourly_rate: <%= spot.hourly_rate %></p>
         </div>
         <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
       </div>
@@ -25,5 +27,5 @@ Spots
   </div>
 </div>
 
-<%= link_to "Add a New Spot", new_spot_url(@spot), class: "btn btn-primary btn-lg" %>
+<%= link_to "Add a New Spot", new_spot_path, class: "btn btn-primary btn-lg" %>
 
