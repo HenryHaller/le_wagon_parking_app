@@ -1,31 +1,31 @@
 <h1 class="text-center">
-<% if @searching %>
-Book a Spot
-<% else %>
-Spots
-<% end %>
+  <% if @searching %>
+    Book a Spot
+  <% else %>
+    Spots
+  <% end %>
 </h1>
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% @spots.each do |spot| %>
-      <div class="card" style="background-color:#AFBFC0;">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <% if @searching %>
-          <%= link_to "Site Name: #{spot.site_name}", new_spot_booking_path(spot) %>
-          <% else %>
-          <%= "Site Name: #{spot.site_name}" %>
-          <% end %>
-          <p>Address: <%= spot.address %></p>
-          <p>Hourly_rate: <%= spot.hourly_rate %></p>
+        <div class="card" style="background-color:#AFBFC0;">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <% if @searching %>
+              <%= link_to "Site Name: #{spot.site_name}", new_spot_booking_path(spot) %>
+            <% else %>
+              <%= "Site Name: #{spot.site_name}" %>
+            <% end %>
+            <p>Address: <%= spot.address %></p>
+            <p>Hourly_rate: <%= spot.hourly_rate %></p>
+            <p><%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+            </p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-      </div>
       <% end %>
     </div>
   </div>
 </div>
-
 <%= link_to "Add a New Spot", new_spot_path, class: "btn btn-primary btn-lg" %>
-
