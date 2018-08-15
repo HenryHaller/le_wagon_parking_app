@@ -1,22 +1,20 @@
-<h1>Cars</h1>
-<div class="container"></div>
+<h3>Cars</h3>
+<div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-    <% @cars.each do |car| %>
-      <div class="card" style="background-color: lightgray;">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-
-          <p><%= car.make %></p>
-          <p><%= car.model %></p>
-          <p><%= car.year %></p>
-
+      <% @cars.each do |car| %>
+        <div class="card" style="background-color: lightgray;">
+          <div class="card-description">
+            <p><%= car.make %></p>
+            <p><%= car.model %></p>
+            <p><%= car.year %></p>
+          </div>
+          <img class="card-user" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
         </div>
-        <img class="card-user" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
-        <a class="card-link" href="#" ></a>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <%= link_to "Add a car", new_car_path, class: 'btn btn-success' %>
+

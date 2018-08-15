@@ -3,21 +3,17 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% @spots.each do |spot| %>
-
-          <!-- insert <div class="card"> -->
-
-            <div class="card" style="background-color:#AFBFC0;">
-            <div class="card-category">Popular</div>
-            <div class="card-description">
-              <p>spot.site_name</p>
-            </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <a class="card-link" href="#" ></a>
+        <div class="card" style="background-color: lightgray;">
+          <div class="card-description">
+            <p>Site Name: <%= spot.site_name %></p>
+            <p>Address: <%= spot.address %></p>
+            <p>Hourly_rate: <%= spot.hourly_rate %></p>
           </div>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
 
-<%= link_to "Add a New Spot", new_spot_url(@spot), class: "btn btn-primary btn-lg" %>
+<%= link_to "Add a New Spot", new_spot_path, class: "btn btn-primary btn-lg" %>
 
