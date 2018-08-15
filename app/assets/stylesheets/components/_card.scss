@@ -14,6 +14,11 @@
   width: 200px;
   height: 150px;
 }
+
+.card-user img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .card-category {
   position: absolute;
   top: 10px;
@@ -23,14 +28,14 @@
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 30px;
+  left: 220px;
 }
 .card-description h2 {
   font-size: 24px;
 }
 .card-description p {
-  font-size: 14px;
+  font-size: 24px;
   opacity: 0.7;
   font-weight: lighter;
 }

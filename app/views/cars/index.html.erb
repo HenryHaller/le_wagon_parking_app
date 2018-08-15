@@ -1,21 +1,22 @@
 <h1>Cars</h1>
+<div class="container"></div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+    <% @cars.each do |car| %>
+      <div class="card" style="background-color: lightgray;">
+        <div class="card-category">Popular</div>
+        <div class="card-description">
 
-<%= link_to "Cars", cars_path, class: 'btn btn-info'  %>
-<%= link_to "Profile", root_path, class: 'btn btn-danger' %>
-<%= link_to "Spots", spots_path, class: 'btn btn-primary' %>
-<%= link_to "Bookings", bookings_path, class: 'btn btn-warning' %>
+          <p><%= car.make %></p>
+          <p><%= car.model %></p>
+          <p><%= car.year %></p>
 
-<% @cars.each do |car| %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
-    <div class="card-category">Popular</div>
-    <div class="card-description">
-
-      <h2><%= car.make %></h2>
-      <p>Very cool city, the best</p>
-    </div>
-    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-    <a class="card-link" href="#" ></a>
+        </div>
+        <img class="card-user" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
+        <a class="card-link" href="#" ></a>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <%= link_to "Add a car", new_car_path, class: 'btn btn-success' %>
