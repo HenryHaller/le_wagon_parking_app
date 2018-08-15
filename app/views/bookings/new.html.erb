@@ -1,4 +1,9 @@
-<h1>Bookings</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+    <h1>Bookings</h1>
+
+
 
 
 <%= simple_form_for [@spot, @booking] do |f| %>
@@ -15,3 +20,6 @@
 <%= f.input :car_id, collection: @cars %>
 <%= f.submit %>
 <% end %>
+    </div>
+  </div>
+</div>
