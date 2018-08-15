@@ -1,7 +1,7 @@
 <h1>Add a spot</h1>
 
 <div class="container">
-    <% if @@spot.errors.any? %>
+    <% if @spot.errors.any? %>
     <div class="errors-container">
       <ul>
         <% @spot.errors.full_messages.each do |message| %>
