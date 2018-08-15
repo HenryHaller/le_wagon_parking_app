@@ -2,14 +2,13 @@
   <div class="banner-content">
     <h1>Spot.find</h1>
     <p>On demand parking near you</p>
-    <form accept-charset="UTF-8" action="/search" method="get">
-      <input name="utf8" type="hidden" value="&#x2713;" />
-      <label for="q">Location</label>
-      <input id="q" name="q" type="text" />
-      <label for="q">Date/Time</label>
-      <input id="q" name="q" type="text" />
-        <a class="btn btn-primary btn-lg">Search</a>
-    </form>
+    <%= form_tag("/results", method: "post") do %>
+      <%= label_tag(:location, "Location") %>
+      <%= text_field_tag(:location) %>
+      <%= label_tag(:datetime, "Date and Time") %>
+      <%= text_field_tag(:datetime) %>
+      <%= submit_tag("Search") %>
+    <% end %>
   </div>
 </div>
 

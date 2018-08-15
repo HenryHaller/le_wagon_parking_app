@@ -8,6 +8,8 @@
             <p><%= car.make %></p>
             <p><%= car.model %></p>
             <p><%= car.year %></p>
+            <p><%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+            </p>
           </div>
           <img class="card-user" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
         </div>
@@ -15,6 +17,4 @@
     </div>
   </div>
 </div>
-
 <%= link_to "Add a car", new_car_path, class: 'btn btn-success' %>
-

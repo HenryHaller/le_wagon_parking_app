@@ -33,6 +33,12 @@ class SpotsController < ApplicationController
     redirect_to spots_path
   end
 
+  def results
+    @spots = Spot.where.not(user: current_user)
+    @searching = true
+    render :index
+  end
+
   private
 
   def spot_params

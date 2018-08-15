@@ -16,12 +16,18 @@ User.delete_all
 
 #creating sample user
 User.create(first_name: "jon", last_name: "jones", email: "test@gmail.com", password: "123456")
+User.create(first_name: "sam", last_name: "smith", email: "test2@gmail.com", password: "123456")
 
-5.times do
-  User.create(first_name: Faker::Dog.name, last_name: Faker::Pokemon.name, email: Faker::Internet.email, password: "123456")
-end
+
+
+# 5.times do
+#   User.create(first_name: Faker::Dog.name, last_name: Faker::Pokemon.name, email: Faker::Internet.email, password: "123456")
+# end
 
 puts "Created #{User.count} Users"
+u = User.all.last
+Spot.create(site_name: "spot1", address: "123 fake st", hourly_rate: (5..30).to_a.sample, description: 'a first spot', location: "75n, 78s", user: u )
+Spot.create(site_name: "spot2", address: "456 lake st", hourly_rate: (5..30).to_a.sample, description: 'a second spot', location: "75n, 78s", user: u )
 
 
 User.all.each do |user|
@@ -31,7 +37,6 @@ User.all.each do |user|
 end
 
 puts "created #{Spot.count} spots"
-
 
 
 User.all.each do |user|
