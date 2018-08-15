@@ -6,38 +6,51 @@
 
 <body>
 
-  <h1>Bookings</h1>
-  <div class="booking_row">
-    <div class="column">
-      <h3>Car bookings:</h3>
-      <br>
-      <% @car_bookings.each do |car_booking| %>
-      <%= car_booking.car.make %>
-      <%= car_booking.car.model %>
-      <%= car_booking.car.year %>
-      <%= car_booking.car.license_plate %>
-      <%= car_booking.duration %>
-      <%= car_booking.spot.address %>
-      <%= car_booking.spot.site_name %>
-      <%= car_booking.spot.hourly_rate %>
-      <br>
-      <% end %>
+  <h1 class="text-center">Bookings</h1>
+  <div class="row">
+    <div class="col col-xs-12 col-sm-6">
+      <div class="booking_card">
+       <h3 class="booking">Car bookings</h3>
+       <br>
+       <% @car_bookings.each do |car_booking| %>
+       <ul>
+        <li>Make: <%= car_booking.car.make %></li>
+        <li>Model: <%= car_booking.car.model %></li>
+        <li>Year: <%= car_booking.car.year %></li>
+        <li>License: <%= car_booking.car.license_plate %></li>
+      </ul>
+      <ul>
+        <li><%= car_booking.duration %></li>
+        <li><%= car_booking.spot.address %></li>
+        <li><%= car_booking.spot.site_name %></li>
+        <li><%= car_booking.spot.hourly_rate %></li>
+      </ul>
+      <%= link_to "Delete", booking_path(car_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
     </div>
+    <% end %>
+  </div>
 
-    <div class="column">
-      <h3>Spot Bookings:</h3>
+  <div class="col col-xs-12 col-sm-6">
+    <div class="booking_card">
+      <h3 class="booking">Spot Bookings</h3>
       <br>
       <% @spot_bookings.each do |spot_booking| %>
-      <%= spot_booking.car.make %>
-      <%= spot_booking.car.model %>
-      <%= spot_booking.car.year %>
-      <%= spot_booking.car.license_plate %>
-      <%= spot_booking.duration %>
-      <%= spot_booking.spot.address %>
-      <%= spot_booking.spot.site_name %>
-      <%= spot_booking.spot.hourly_rate %>
-      <br>
-      <% end %>
+      <ul>
+
+        <li><%= spot_booking.car.make %></li>
+        <li><%= spot_booking.car.model %></li>
+        <li><%= spot_booking.car.year %></li>
+        <li><%= spot_booking.car.license_plate %></li>
+      </ul>
+      <ul>
+        <li><%= spot_booking.duration %></li>
+        <li><%= spot_booking.spot.address %></li>
+        <li><%= spot_booking.spot.site_name %></li>
+        <li><%= spot_booking.spot.hourly_rate %></li>
+      </ul>
+      <%= link_to "Delete", booking_path(spot_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
     </div>
+    <% end %>
   </div>
+</div>
 </body>
