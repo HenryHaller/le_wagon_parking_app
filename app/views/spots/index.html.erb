@@ -1,8 +1,8 @@
 <h1 class="text-center">
   <% if @searching %>
-    Book a Spot
+  Book a Spot
   <% else %>
-    Spots
+  Spots
   <% end %>
 </h1>
 <div class="container">
@@ -22,13 +22,19 @@
             <p>Hourly rate: $<%= spot.hourly_rate %></p>
           </div>
           <img src='<%= image_path ("parkingspot.jpg") %>' class="card-user">
+
         </div>
+        <img src='<%= image_path ("parkingspot.jpg") %>' class="card-user">
+      </div>
       <% end %>
       <div class = "form-row text-center">
         <div class="col-12">
           <%= link_to "Add a New Spot", new_spot_path, class: "btn btn-primary btn-lg btn-block" %>
         </div>
+
       </div>
     </div>
   </div>
 </div>
+    <div id="map", style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"> </div>
+
