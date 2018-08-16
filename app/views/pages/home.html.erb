@@ -12,10 +12,17 @@
     <%= submit_tag("Search") %>
 
     <% end %>
+    <% if current_user %>
     <% if current_user.cars.count == 0 %>
     <p>
-      <%= link_to "al;sdkjfelkfje", new_car_path %>
+      <%= link_to "new car", new_car_path %>
     </p>
+    <% end %>
+    <% if current_user.spots.count == 0 %>
+    <p>
+      <%= link_to "new spot", new_spot_path %>
+    </p>
+    <% end %>
     <% end %>
   </div>
 </div>
