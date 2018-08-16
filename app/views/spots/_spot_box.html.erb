@@ -1,3 +1,5 @@
 <h4><%= spot.site_name %></h4>
 <p><%= spot.address %></p>
 <p><%= spot.description %></p>
+<p>$<%= spot.hourly_rate %>/Hour</p>
+<p><%= link_to "Book this this Spot", new_spot_booking_path(spot) %></p>

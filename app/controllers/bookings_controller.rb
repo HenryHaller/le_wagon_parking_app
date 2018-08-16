@@ -16,15 +16,22 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    @car = Car.new
     @spot = Spot.find(params[:spot_id])
+    @booking = Booking.new
     @cars = current_user.cars
   end
 
   def create
+
     booking = Booking.new(booking_params)
     booking.spot = Spot.find(params[:spot_id])
-    booking.car = Car.find(params[:booking][:car_id])
+    #  unless booking.car
+    unless booking.car
+      @car = Car.new(car_params)
+      @car.user = current_user
+      booking.car = @car
+    end
     if booking.save
       redirect_to bookings_path
     else
@@ -42,7 +49,11 @@ class BookingsController < ApplicationController
   end
 
   private
+  def car_params
+    params.require(:booking).require(:car).permit(:make, :model, :year, :license_plate, :photo, :photo_cache)
+  end
+
   def booking_params
-    params.require(:booking).permit(:duration)
+    params.require(:booking).permit(:duration, :car_id)
   end
 end

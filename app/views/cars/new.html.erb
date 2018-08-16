@@ -20,6 +20,7 @@
         <%= f.input :license_plate, placeholder: "6RTY855" %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
+        <%= hidden_field_tag :spot_id, params[:spot_id] %>
         <%= f.button :submit, class: 'btn btn-primary' %>
         <%= link_to "Back home", root_path, class: 'btn btn-danger' %>
       <% end %>
