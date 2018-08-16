@@ -6,6 +6,7 @@
   color: white;
   position: relative;
   margin: 10px;
+  box-shadow: 0 0 8px gray;
 }
 .card-user {
   position: absolute;
@@ -13,11 +14,7 @@
   top: 10px;
   width: 200px;
   height: 150px;
-}
-
-.card-user img {
-  max-width: 100%;
-  max-height: 100%;
+  background-size: cover;
 }
 .card-category {
   position: absolute;

@@ -2,6 +2,7 @@ class SpotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @spots = current_user.spots
+    @markers = markers(@spots)
   end
 
   def show
@@ -38,8 +39,11 @@ class SpotsController < ApplicationController
     @searching = true
     render :index
   end
-
   private
+  def markers(spots)
+    spots.map { |spot|  {lat:spot.latitude,lng:spot.longitude}}
+  end
+
 
   def spot_params
     params.require(:spot).permit(:site_name, :address, :description, :hourly_rate)

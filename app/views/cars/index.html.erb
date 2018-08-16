@@ -13,12 +13,12 @@
             <p><%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Do you want to delete?"}  %>
             </p>
           </div>
-          <img class="card-user" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
+          <img class="card-user" style="background-image: url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
         </div>
       <% end %>
       <div class = "form-row text-center">
         <div class="col-12">
-          <%= link_to "Add a car", new_car_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to "Add a car", new_car_path, class: 'btn btn-primary btn-lg btn-block' %>
         </div>
       </div>
     </div>
