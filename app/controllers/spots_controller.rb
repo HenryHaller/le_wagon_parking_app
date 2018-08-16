@@ -36,12 +36,14 @@ class SpotsController < ApplicationController
 
   def results
     @spots = Spot.where.not(user: current_user)
+    @markers = markers(@spots)
     @searching = true
     render :index
   end
   private
   def markers(spots)
-    spots.map { |spot|  {lat:spot.latitude,lng:spot.longitude}}
+    spots.map { |spot|  {lat:spot.latitude,lng:spot.longitude, infoWindow: { content: render_to_string(partial: "/spots/spot_box", locals: { spot: spot }) }}}
+
   end
 
 
