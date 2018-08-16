@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-
     <title>Spot.Find</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -16,12 +14,8 @@
   </head>
   <body>
     <%= render "layouts/navbar" %>
-
-
+    <%= render 'layouts/flashes' %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
