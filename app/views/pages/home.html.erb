@@ -10,16 +10,16 @@
       <%= submit_tag("Search") %>
     <% end %>
     <% if current_user %>
-    <% if current_user.cars.count == 0 %>
-      <p>
-        <%= link_to "You have no cars, add a car here", new_car_path, class: 'btn btn-success' %>
-      </p>
-    <% end %>
-    <% if current_user.spots.count == 0 %>
-    <p>
-      <%= link_to "You have no spots, add a spot here", new_spot_path, class: 'btn btn-success' %>
-    </p>
-    <% end %>
+      <% if current_user.cars.count == 0 %>
+        <p>
+          <%= link_to "You have no cars, add a car here", new_car_path, class: 'btn btn-success' %>
+        </p>
+      <% end %>
+      <% if current_user.spots.count == 0 %>
+        <p>
+          <%= link_to "You have no spots, add a spot here", new_spot_path, class: 'btn btn-success' %>
+        </p>
+      <% end %>
     <% end %>
   </div>
 </div>
