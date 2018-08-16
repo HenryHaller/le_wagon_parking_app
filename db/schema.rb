@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_021537) do
     t.string "address"
     t.text "description"
     t.integer "hourly_rate"
-    t.string "location"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
