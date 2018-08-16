@@ -5,7 +5,7 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :address
       t.text :description
       t.integer :hourly_rate
-      t.string :location
+      # t.string :location
       t.references :user, foreign_key: true
 
       t.timestamps
