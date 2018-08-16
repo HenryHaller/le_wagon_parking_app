@@ -14,7 +14,7 @@
             </ul>
           </div>
         <% end %>
-        <%= f.input :duration, placeholder: "2 hours" %>
+        <%= f.input :duration, placeholder: "2" %>
         <% if current_user.cars.count == 0 %>
           <%= f.simple_fields_for @car do |c| %>
             <%= c.input :make, placeholder: "Honda" %>
