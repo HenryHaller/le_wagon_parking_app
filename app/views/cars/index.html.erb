@@ -7,9 +7,7 @@
       <% @cars.each do |car| %>
         <div class="card" style="background-color: lightgray;">
           <div class="card-description">
-            <p><%= car.make %></p>
-            <p><%= car.model %></p>
-            <p><%= car.year %></p>
+            <p><%= car.year %> <%= car.make %> <%= car.model %></p>
             <p><%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Do you want to delete?"}  %>
             </p>
           </div>
@@ -18,7 +16,7 @@
       <% end %>
       <div class = "form-row text-center">
         <div class="col-12">
-        <%= link_to "Add a car", new_car_path, class: 'btn btn-primary btn-lg btn-block' %>
+          <%= link_to "Add a car", new_car_path, class: 'btn btn-primary btn-lg btn-block' %>
         </div>
       </div>
     </div>

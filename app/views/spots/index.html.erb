@@ -17,11 +17,11 @@
             <% if @searching %>
               <%= link_to "Site Name: #{spot.site_name}", new_spot_booking_path(spot) %>
             <% else %>
-              <%= "Site Name: #{spot.site_name}" %>
-              <%= link_to "Delete", spot_path(spot), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+              <p><%= "Site Name: #{spot.site_name}" %></p>
             <% end %>
             <p>Address: <%= spot.address %></p>
             <p>Hourly rate: $<%= spot.hourly_rate %></p>
+            <%= link_to "Delete", spot_path(spot), method: :delete, data: { confirm: "Do you want to delete?"}  %>
           </div>
           <img src='<%= image_path ("parkingspot.jpg") %>' class="card-user">
         </div>
