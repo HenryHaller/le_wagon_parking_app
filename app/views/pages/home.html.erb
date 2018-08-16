@@ -3,12 +3,19 @@
 
     <h1>Spot.find</h1>
     <p>On demand parking near you</p>
+
     <%= form_tag("/results", method: "post") do %>
-      <%= label_tag(:location, "Location") %>
-      <%= text_field_tag(:location) %>
-      <%= label_tag(:datetime, "Date and Time") %>
-      <%= text_field_tag(:datetime) %>
-      <%= submit_tag("Search") %>
+    <%= label_tag(:location, "Location") %>
+    <%= text_field_tag(:location) %>
+    <%= label_tag(:datetime, "Date and Time") %>
+    <%= text_field_tag(:datetime) %>
+    <%= submit_tag("Search") %>
+
+    <% end %>
+    <% if current_user.cars.count == 0 %>
+    <p>
+      <%= link_to "al;sdkjfelkfje", new_car_path %>
+    </p>
     <% end %>
   </div>
 </div>
