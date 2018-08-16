@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <h1>Bookings</h1>
+
+
       <%= simple_form_for [@spot, @booking] do |f| %>
         <% if @booking.errors.any? %>
           <div class="errors-container">
@@ -13,9 +15,21 @@
           </div>
         <% end %>
         <%= f.input :duration, placeholder: "2 hours" %>
-        <%= f.input :car_id, collection: @cars %>
+        <% if current_user.cars.count == 0 %>
+          <%= f.simple_fields_for @car do |c| %>
+            <%= c.input :make, placeholder: "Honda" %>
+            <%= c.input :model, placeholder: "S2000" %>
+            <%= c.input :year, placeholder: "2015" %>
+            <%= c.input :license_plate, placeholder: "6RTY855" %>
+            <%= c.input :photo %>
+            <%= c.input :photo_cache, as: :hidden %>
+          <% end %>
+        <% else %>
+          <%= f.input :car_id, collection: @cars %>
+        <% end %>
         <%= f.submit %>
       <% end %>
+
     </div>
   </div>
 </div>
