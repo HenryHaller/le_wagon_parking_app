@@ -1,22 +1,17 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to image_tag("spotfind.png"), root_path, class: "navbar-wagon-brand" %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
-
       <!-- Links when logged in -->
-
       <%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Cars", cars_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Spots", spots_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag ("ableen.jpg"), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -40,10 +35,8 @@
       <!-- Login link (when logged out) -->
       <%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
     <% end %>
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
