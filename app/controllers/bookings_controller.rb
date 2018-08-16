@@ -23,7 +23,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-
     booking = Booking.new(booking_params)
     booking.spot = Spot.find(params[:spot_id])
     #  unless booking.car
@@ -54,6 +53,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:duration, :car_id)
+    params.require(:booking).permit(:begin, :end, :car_id)
   end
 end
