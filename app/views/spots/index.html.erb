@@ -12,7 +12,6 @@
     <div class="col-sm-8 col-sm-offset-2">
       <% @spots.each do |spot| %>
         <div class="card" style="background-color: lightgray;">
-          <div class="card-category"></div>
           <div class="card-description">
             <% if @searching %>
               <%= link_to "Site Name: #{spot.site_name}", new_spot_booking_path(spot) %>
@@ -26,13 +25,11 @@
           <img src='<%= image_path ("parkingspot.jpg") %>' class="card-user">
         </div>
       <% end %>
-    </div>
     <div class = "form-row text-center">
       <div class="col-12">
-        <%= link_to "Add a New Spot", new_spot_path, class: "btn btn-primary btn-lg" %>
+        <%= link_to "Add a New Spot", new_spot_path, class: "btn btn-primary btn-lg btn-block" %>
       </div>
     </div>
   </div>
-</div>
 </div>
 <div id="map", style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"> </div>
