@@ -12,7 +12,7 @@
     <% if current_user %>
       <% if current_user.cars.count == 0 %>
         <p>
-          <%= link_to "You have no cars, add a car here", new_car_path, class: 'btn btn-success' %>
+          <%= link_to "You have no cars - add a car here", new_car_path, class: 'btn btn-success' %>
         </p>
       <% end %>
       <% if current_user.spots.count == 0 %>
