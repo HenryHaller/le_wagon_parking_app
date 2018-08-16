@@ -1,7 +1,8 @@
-<h1>Add a spot</h1>
-
+<div class="spotpagebanner" style="background-image: url('<%= image_path("parking.jpg") %>">
+  <h1>Add a spot</h1>
+</div>
 <div class="container">
-    <% if @spot.errors.any? %>
+  <% if @spot.errors.any? %>
     <div class="errors-container">
       <ul>
         <% @spot.errors.full_messages.each do |message| %>
@@ -10,20 +11,16 @@
       </ul>
     </div>
   <% end %>
-
- <div class="row">
-   <div class="col-md-8 col-md-offset-2">
-
-     <%= simple_form_for @spot do |f| %>
-       <%= f.input :site_name %>
-       <%= f.input :address %>
-       <%= f.input :hourly_rate %>
-       <%= f.input :description %>
-       <%= f.submit class: "btn btn-primary" %>
-       <%= link_to "Back home", root_path, class: 'btn btn-danger' %>
-     <% end %>
-   </div>
- </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= simple_form_for @spot do |f| %>
+        <%= f.input :site_name, placeholder: "Downtown Garage" %>
+        <%= f.input :address, placeholder: "123 Main Street, Anytown, State" %>
+        <%= f.input :hourly_rate, placeholder: "$12" %>
+        <%= f.input :description, placeholder: "Great location downtown, fits sedan" %>
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to "Back home", root_path, class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-

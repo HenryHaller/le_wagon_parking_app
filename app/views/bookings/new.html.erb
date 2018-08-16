@@ -1,25 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-    <h1>Bookings</h1>
-
-
-
-
-<%= simple_form_for [@spot, @booking] do |f| %>
-  <% if @booking.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% @booking.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+      <h1>Bookings</h1>
+      <%= simple_form_for [@spot, @booking] do |f| %>
+        <% if @booking.errors.any? %>
+          <div class="errors-container">
+            <ul>
+              <% @booking.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-<%= f.input :duration %>
-<%= f.input :car_id, collection: @cars %>
-<%= f.submit %>
-<% end %>
+        <%= f.input :duration, placeholder: "2 hours" %>
+        <%= f.input :car_id, collection: @cars %>
+        <%= f.submit %>
+      <% end %>
     </div>
   </div>
 </div>

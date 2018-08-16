@@ -1,7 +1,8 @@
-<h1 class="text-center">Add a new car</h1>
-
+<div class="carpagebanner" style="background-image: url('<%= image_path("car.jpg") %>');">
+  <h1 class="text-center">Add a new car</h1>
+</div>
 <div class="container">
-    <% if @car.errors.any? %>
+  <% if @car.errors.any? %>
     <div class="errors-container">
       <ul>
         <% @car.errors.full_messages.each do |message| %>
@@ -10,15 +11,13 @@
       </ul>
     </div>
   <% end %>
-
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-
       <%= simple_form_for @car do |f| %>
-        <%= f.input :make %>
-        <%= f.input :model %>
-        <%= f.input :year %>
-        <%= f.input :license_plate %>
+        <%= f.input :make, placeholder: "Honda" %>
+        <%= f.input :model, placeholder: "S2000" %>
+        <%= f.input :year, placeholder: "2015" %>
+        <%= f.input :license_plate, placeholder: "6RTY855" %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, class: 'btn btn-primary' %>
