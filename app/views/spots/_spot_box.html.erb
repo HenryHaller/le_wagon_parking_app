@@ -2,4 +2,27 @@
 <p><%= spot.address %></p>
 <p><%= spot.description %></p>
 <p>$<%= spot.hourly_rate %>/Hour</p>
-<p><%= link_to "Book this this Spot", new_spot_booking_path(spot) %></p>
+
+<%= simple_form_for [spot, @booking] do |f| %>
+<%= f.input :begin, as: :hidden, :input_html => { :value => params[:results][:begin] } %>
+<%= f.input :end, as: :hidden, :input_html => { :value => params[:results][:end] } %>
+
+<% if current_user.cars.count == 0 %>
+<h5>No Car, No Problem!</h5>
+<h6>Add Your Vehicle here.</h6>
+  <%= f.simple_fields_for @car do |c| %>
+  <%= c.input :make, placeholder: "Honda" %>
+  <%= c.input :model, placeholder: "S2000" %>
+  <%= c.input :year, placeholder: "2015" %>
+  <%= c.input :license_plate, placeholder: "6RTY855" %>
+  <%= c.input :photo %>
+  <%= c.input :photo_cache, as: :hidden %>
+<% end %>
+<% else %>
+  <%= f.input :car_id, collection: @cars %>
+<% end %>
+
+
+<p><%#= link_to "Book this this Spot", new_spot_booking_path(spot) %></p>
+<%= f.submit %>
+<% end %>

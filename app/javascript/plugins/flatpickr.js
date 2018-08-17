@@ -7,7 +7,7 @@ flatpickr(".datepicker", {
   time_24hr: true,
   altInput: true,
   altFormat: "H:00 F j, Y",
-  dateFormat: "Y-m-d-H",
+  dateFormat: "Z",
   minuteIncrement: 0,
 
 })
