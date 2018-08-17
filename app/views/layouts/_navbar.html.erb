@@ -5,10 +5,12 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
+      <h5>Hello <%= current_user.first_name.capitalize %>! </h5>
       <!-- Links when logged in -->
       <%= link_to "Add Car", new_car_path, style: 'color: white', class: "btn btn-primary navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Book Now", root_path, style: 'color: white', class: "btn btn-danger navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Add Spot", new_spot_path, style: 'color: white', class: "btn btn-primary navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Booking", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Cars", cars_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Spots", spots_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Avatar with dropdown menu -->

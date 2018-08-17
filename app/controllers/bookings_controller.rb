@@ -67,6 +67,7 @@ class BookingsController < ApplicationController
       car = Car.find(params[:booking][:car_id])
     else
       car = Car.new(params.require(:booking).require(:car).permit(:make, :model, :year, :license_plate, :photo, :photo_cache))
+      car.user = current_user
       unless car.save
         render "I'm Very sorry but your car save failed :-("
       end

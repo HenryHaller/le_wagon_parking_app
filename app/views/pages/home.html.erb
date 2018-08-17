@@ -7,20 +7,8 @@
         <%= f.input :begin, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :end, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :location, as: :string %>
-        <%= f.button :submit, "Go", class: "btn btn-primary" %>
+        <%= f.button :submit, "Spot.all", class: "btn btn-primary" %>
       <% end %>
     </div>
-    <% if current_user %>
-      <% if current_user.cars.count == 0 %>
-        <p>
-          <%= link_to "You have no cars - add a car here", new_car_path, class: 'btn btn-success' %>
-        </p>
-      <% end %>
-      <% if current_user.spots.count == 0 %>
-        <p>
-          <%= link_to "You have no spots, add a spot here", new_spot_path, class: 'btn btn-success' %>
-        </p>
-      <% end %>
-    <% end %>
   </div>
 </div>
