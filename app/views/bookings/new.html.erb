@@ -14,7 +14,8 @@
             </ul>
           </div>
         <% end %>
-        <%= f.input :duration, placeholder: "2" %>
+        <%= f.input :begin, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end, as: :string, required: false, input_html: {class: "datepicker"} %>
         <% if current_user.cars.count == 0 %>
           <%= f.simple_fields_for @car do |c| %>
             <%= c.input :make, placeholder: "Honda" %>

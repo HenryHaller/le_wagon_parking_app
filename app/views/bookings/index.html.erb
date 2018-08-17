@@ -1,6 +1,33 @@
 <div class="carpagebanner" style="background-image: url('<%= image_path("calendar.jpg") %>');">
   <h1 class="text-center">Bookings</h1>
 </div>
+<<<<<<< HEAD
+<div class="tabs">
+  <a class="tab active" href="#">
+    <div class="row">
+      <div class="col col-xs-12 col-sm-6">
+        <h3 class="booking">Spots I Booked</h3>
+        <% @car_bookings.each do |car_booking| %>
+          <div class="card" style="background-color: lightgray;">
+            <div class="booking-description">
+              <ul>
+                <li>Make: <%= car_booking.car.make %></li>
+                <li>Model: <%= car_booking.car.model %></li>
+                <li>Year: <%= car_booking.car.year %></li>
+                <li>License: <%= car_booking.car.license_plate %></li>
+              </ul>
+              <ul>
+                <li><%= car_booking.duration %> hours</li>
+                <li><%= car_booking.spot.address %></li>
+                <li><%= car_booking.spot.site_name %></li>
+                <li>Rate: $<%= car_booking.spot.hourly_rate %>/hour</li>
+              </ul>
+              <br>
+              <div class="text-center">
+                <%= link_to "Delete", booking_path(car_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+              </div>
+            </div>
+=======
 <div class="row">
   <div class="col col-xs-12 col-sm-6">
     <h3 class="booking">Spots I Booked</h3>
@@ -14,7 +41,8 @@
             <li>License: <%= car_booking.car.license_plate %></li>
           </ul>
           <ul>
-            <li><%= car_booking.duration %> hours</li>
+            <li>Begining Time:<%= car_booking.begin %></li>
+            <li>Ending Time: <%= car_booking.end %></li>
             <li><%= car_booking.spot.address %></li>
             <li><%= car_booking.spot.site_name %></li>
             <li>Rate: $<%= car_booking.spot.hourly_rate %>/hour</li>
@@ -22,9 +50,37 @@
           <br>
           <div class="text-center">
             <%= link_to "Delete", booking_path(car_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+>>>>>>> 604ceb96e8b1119c5470a2f93d6cc1fb04baf457
           </div>
-        </div>
+        <% end %>
       </div>
+<<<<<<< HEAD
+    </div>
+  </a>
+  <a class="tab" href="#">
+    <div class="col col-xs-12 col-sm-6">
+      <h3 class="booking">My Spot's Bookings</h3>
+        <% @spot_bookings.each do |spot_booking| %>
+          <div class="card" style="background-color: lightgray;">
+            <div class="booking-description">
+              <ul>
+                <li>Make: <%= spot_booking.car.make %></li>
+                <li>Model: <%= spot_booking.car.model %></li>
+                <li>Year: <%= spot_booking.car.year %></li>
+                <li>License: <%= spot_booking.car.license_plate %></li>
+              </ul>
+              <ul>
+                <li><%= spot_booking.duration %> hours</li>
+                <li><%= spot_booking.spot.address %></li>
+                <li><%= spot_booking.spot.site_name %></li>
+                <li>Rate: $<%= spot_booking.spot.hourly_rate %>/hour</li>
+              </ul>
+              <br>
+              <div class="text-center">
+                <%= link_to "Delete", booking_path(spot_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+              </div>
+            </div>
+=======
     <% end %>
   </div>
   <div class="col col-xs-12 col-sm-6">
@@ -39,7 +95,8 @@
             <li>License: <%= spot_booking.car.license_plate %></li>
           </ul>
           <ul>
-            <li><%= spot_booking.duration %> hours</li>
+            <li>Begining Time:<%= spot_booking.begin %></li>
+            <li>End Time: <%= spot_booking.end %></li>
             <li><%= spot_booking.spot.address %></li>
             <li><%= spot_booking.spot.site_name %></li>
             <li>Rate: $<%= spot_booking.spot.hourly_rate %>/hour</li>
@@ -47,10 +104,10 @@
           <br>
           <div class="text-center">
             <%= link_to "Delete", booking_path(spot_booking), method: :delete, data: { confirm: "Do you want to delete?"}  %>
+>>>>>>> 604ceb96e8b1119c5470a2f93d6cc1fb04baf457
           </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+        <% end %>
+    </div>
+  </a>
 </div>
 </body>

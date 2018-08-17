@@ -2,13 +2,14 @@
   <div class="banner-content">
     <h1>Spot.find</h1>
     <p>On demand parking near you</p>
-    <%= form_tag("/results", method: "post") do %>
-      <%= label_tag(:location, "Location") %>
-      <%= text_field_tag(:location) %>
-      <%= label_tag(:datetime, "Date and Time") %>
-      <%= text_field_tag(:datetime) %>
-      <%= submit_tag("Search") %>
-    <% end %>
+    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+      <%= simple_form_for :results, :url => "/results", method: "get" do |f| %>
+        <%= f.input :begin, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :location, as: :string %>
+        <%= f.button :submit, "Go", class: "btn btn-primary" %>
+      <% end %>
+    </div>
     <% if current_user %>
       <% if current_user.cars.count == 0 %>
         <p>
