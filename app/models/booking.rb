@@ -4,6 +4,5 @@ class Booking < ApplicationRecord
   accepts_nested_attributes_for :car
   validates :car, presence: true
   validates :spot, presence: true
-  validates :duration, presence: true
-  validates :duration, numericality: { only_integer: true}
+  validates :begin, :end, presence: true
 end

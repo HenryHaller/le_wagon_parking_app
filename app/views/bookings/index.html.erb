@@ -14,7 +14,8 @@
             <li>License: <%= car_booking.car.license_plate %></li>
           </ul>
           <ul>
-            <li><%= car_booking.duration %> hours</li>
+            <li>Begining Time:<%= car_booking.begin %></li>
+            <li>Ending Time: <%= car_booking.end %></li>
             <li><%= car_booking.spot.address %></li>
             <li><%= car_booking.spot.site_name %></li>
             <li>Rate: $<%= car_booking.spot.hourly_rate %>/hour</li>
@@ -39,7 +40,8 @@
             <li>License: <%= spot_booking.car.license_plate %></li>
           </ul>
           <ul>
-            <li><%= spot_booking.duration %> hours</li>
+            <li>Begining Time:<%= spot_booking.begin %></li>
+            <li>End Time: <%= spot_booking.end %></li>
             <li><%= spot_booking.spot.address %></li>
             <li><%= spot_booking.spot.site_name %></li>
             <li>Rate: $<%= spot_booking.spot.hourly_rate %>/hour</li>
