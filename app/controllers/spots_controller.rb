@@ -79,9 +79,9 @@ class SpotsController < ApplicationController
     b1end = b1.end.to_i
     b2end = b2.end.to_i
 
-    return true if b1begin > b2begin && b1begin < b2end
-    return true if b1end > b2begin && b1end < b2end
-    return true if b1begin < b2begin && b1end > b2end
+    return true if b1begin >= b2begin && b1begin <= b2end
+    return true if b1end >= b2begin && b1end <= b2end
+    return true if b1begin <= b2begin && b1end >= b2end
     return false
   end
 
