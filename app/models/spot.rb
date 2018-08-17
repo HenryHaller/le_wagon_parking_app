@@ -11,5 +11,8 @@ class Spot < ApplicationRecord
   #     self.location ||= "default location"
   #   end
 
+  # def available_spots(begin_time, end_time)
+  #   self.joins(:bookings).where("bookings.begin < ")
+  # end
 
 end
