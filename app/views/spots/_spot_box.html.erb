@@ -8,6 +8,8 @@
 <%= f.input :end, as: :hidden, :input_html => { :value => params[:results][:end] } %>
 
 <% if current_user.cars.count == 0 %>
+<h5>No Car, No Problem!</h5>
+<h6>Add Your Vehicle here.</h6>
   <%= f.simple_fields_for @car do |c| %>
   <%= c.input :make, placeholder: "Honda" %>
   <%= c.input :model, placeholder: "S2000" %>
