@@ -10,7 +10,9 @@
             <i class="fas fa-times-circle"></i>
           <% end %>
           <div class="card-description">
-            <p><%= car.year %> <%= car.make %> <%= car.model %></p>
+            <p><%= car.year %></p>
+            <p><%= car.make %></p>
+            <p><%= car.model %></p>
           </div>
           <%= link_to "See bookings for this car", bookings_path, class: "return-btn" %>
           <img class="card-user" style="background-image: url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
