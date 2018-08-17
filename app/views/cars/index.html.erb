@@ -1,24 +1,21 @@
 <div class="carpagebanner" style="background-image: url('<%= image_path("car.jpg") %>');">
-  <h1 class="text-center">Cars</h1>
+  <h1 class="banner-header">My Cars</h1>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="index-row">
     <div class="col-sm-8 col-sm-offset-2">
       <% @cars.each do |car| %>
         <div class="card" style="background-color: lightgray;">
+          <%= link_to car_path(car), class: "delete-btn", method: :delete, data: { confirm: ( car.bookings.any? ? "You have a booking with this car. Do you want to delete?" : "Do you want to delete?" ) } do  %>
+            <i class="fas fa-times-circle"></i>
+          <% end %>
           <div class="card-description">
             <p><%= car.year %> <%= car.make %> <%= car.model %></p>
-            <p><%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Do you want to delete?"}  %>
-            </p>
           </div>
+          <%= link_to "See bookings for this car", bookings_path, class: "return-btn" %>
           <img class="card-user" style="background-image: url('<%= cl_image_path car.photo unless car.photo.blank?%>');">
         </div>
       <% end %>
-      <div class = "form-row text-center">
-        <div class="col-12">
-          <%= link_to "Add a car", new_car_path, class: 'btn btn-primary btn-lg btn-block' %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
