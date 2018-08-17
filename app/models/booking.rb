@@ -5,4 +5,8 @@ class Booking < ApplicationRecord
   validates :car, presence: true
   validates :spot, presence: true
   validates :begin, :end, presence: true
+
+  def duration
+    (self.end.time - self.begin)/1.hour.round
+  end
 end
