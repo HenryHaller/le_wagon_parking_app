@@ -23,23 +23,31 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
-    booking = Booking.new(booking_params)
+
+    booking = Booking.new(begin_end)
     booking.spot = Spot.find(params[:spot_id])
-    #  unless booking.car
-    unless booking.car
-      @car = Car.new(car_params)
-      @car.user = current_user
-      booking.car = @car
-    end
+    booking.car = get_car
     if booking.save
       redirect_to bookings_path
     else
-      @spot = Spot.find(params[:spot_id])
-      @cars = current_user.cars
-      @booking = booking
-      render :new
+      redirect_to root_path
     end
+
+    # raise
+    # #  unless booking.car
+    # unless booking.car
+    #   @car = Car.new(car_params)
+    #   @car.user = current_user
+    #   booking.car = @car
+    # end
+    # if booking.save
+    #   redirect_to bookings_path
+    # else
+    #   @spot = Spot.find(params[:spot_id])
+    #   @cars = current_user.cars
+    #   @booking = booking
+    #   render :new
+    # end
   end
 
   def destroy
@@ -49,8 +57,21 @@ class BookingsController < ApplicationController
   end
 
   private
-  def car_params
-    params.require(:booking).require(:car).permit(:make, :model, :year, :license_plate, :photo, :photo_cache)
+
+  def begin_end
+    params.require(:booking).permit(:begin, :end)
+  end
+
+  def get_car
+    unless params[:booking][:car_id].nil?
+      car = Car.find(params[:booking][:car_id])
+    else
+      car = Car.new(params.require(:booking).require(:car).permit(:make, :model, :year, :license_plate, :photo, :photo_cache))
+      unless car.save
+        render "I'm Very sorry but your car save failed :-("
+      end
+    end
+    car
   end
 
   def booking_params
