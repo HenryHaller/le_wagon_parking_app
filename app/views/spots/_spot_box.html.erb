@@ -2,7 +2,7 @@
 <p><%= spot.address %></p>
 <p><%= spot.description %></p>
 <p>$<%= spot.hourly_rate %>/Hour</p>
-
+<% if @searching %>
 <%= simple_form_for [spot, @booking] do |f| %>
 <%= f.input :begin, as: :hidden, :input_html => { :value => params[:results][:begin] } %>
 <%= f.input :end, as: :hidden, :input_html => { :value => params[:results][:end] } %>
@@ -24,4 +24,5 @@
 
 
 <%= f.submit %>
+<% end %>
 <% end %>
