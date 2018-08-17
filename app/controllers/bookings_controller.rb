@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     booking = Booking.new(booking_params)
     booking.spot = Spot.find(params[:spot_id])
     #  unless booking.car
