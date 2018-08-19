@@ -52,8 +52,8 @@
                 <li>License: <%= spot_booking.car.license_plate %></li>
               </ul>
               <ul>
-                <li>Begining Time:<%= car_booking.begin.strftime("%b %e, %l:%M %p") %></li>
-                <li>Duration: <%= car_booking.duration %> hours </li>
+                <li>Begining Time:<%= spot_booking.begin.strftime("%b %e, %l:%M %p") %></li>
+                <li>Duration: <%= spot_booking.duration %> hours </li>
                 <li><%= spot_booking.spot.address %></li>
                 <li><%= spot_booking.spot.site_name %></li>
                 <li>Rate: $<%= spot_booking.spot.hourly_rate %>/hour</li>

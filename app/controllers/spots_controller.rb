@@ -43,14 +43,17 @@ class SpotsController < ApplicationController
 
     #redirect to root if booking makes no sense
     redirect_to root_path and return if @booking.begin.to_i >= @booking.end.to_i
-    @cars = current_user.cars
-    @car = Car.new
+    if user_signed_in?
+      @cars = current_user.cars
+      @car = Car.new
+    end
 
     @spots = Spot.all
     #if we have a current user, reject out their spots
     @spots = @spots.reject {|spot| spot.user == current_user} if user_signed_in?
     #reject out spots that have bookings
-    @spots.select! {|spot| check_availible_spot(spot, @booking) }
+    # @spots.select! {|spot| check_availible_spot(spot, @booking) }
+    @spots.select! { |spot| spot.check_availibility(@booking) }
 
     # if we have a location, sort by it
     if location
@@ -66,24 +69,24 @@ class SpotsController < ApplicationController
 
   private
 
-  def check_availible_spot(spot, b1)
-    answer =  spot.bookings.none? { |booking| overlaps?(b1, booking) }
-    puts "#{answer} #{spot.site_name}"
-    return answer
-  end
+  # def check_availible_spot(spot, b1)
+  #   answer =  spot.bookings.none? { |booking| overlaps?(b1, booking) }
+  #   puts "#{answer} #{spot.site_name}"
+  #   return answer
+  # end
 
-  def overlaps?(b1, b2)
-    b1begin = b1.begin.to_i
-    b2begin = b2.begin.to_i
+  # def overlaps?(b1, b2)
+  #   b1begin = b1.begin.to_i
+  #   b2begin = b2.begin.to_i
 
-    b1end = b1.end.to_i
-    b2end = b2.end.to_i
+  #   b1end = b1.end.to_i
+  #   b2end = b2.end.to_i
 
-    return true if b1begin >= b2begin && b1begin <= b2end
-    return true if b1end >= b2begin && b1end <= b2end
-    return true if b1begin <= b2begin && b1end >= b2end
-    return false
-  end
+  #   return true if b1begin >= b2begin && b1begin <= b2end
+  #   return true if b1end >= b2begin && b1end <= b2end
+  #   return true if b1begin <= b2begin && b1end >= b2end
+  #   return false
+  # end
 
 
   def time_params
